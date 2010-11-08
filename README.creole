@@ -5,6 +5,15 @@ utilities in Python. Most of them are other mfgames- packages (e.g.,
 mfgames-writing, mfgames-media), but it can be used for anything that
 needs an easily expandable command-line tool framework.
 
+To simplify creation, the utility functions all use the subparser
+component of argparse. In short, the tools are always in the format
+of: script-name action argument(s)
+
+== Example
+
+The `example.py` file is an example command-line tool that uses the
+tools to show how they are used.
+
 == Packaging
 
 This is not intended to be installed as a system- or even site-wide
