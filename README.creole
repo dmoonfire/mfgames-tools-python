@@ -1,1 +1,16 @@
 = Moonfire Games' Tools for Python
+
+This library contains common functionality for creating command-line
+utilities in Python. Most of them are other mfgames- packages (e.g.,
+mfgames-writing, mfgames-media), but it can be used for anything that
+needs an easily expandable command-line tool framework.
+
+== Packaging
+
+This is not intended to be installed as a system- or even site-wide
+Python module. Instead, it was written with the intent of being added
+directly to other utilities and installed as part of those scripts.
+
+Because of this, it does not follow the normal directory structure
+with a src/ direction, but instead everything is placed as if it was a
+Python module.
