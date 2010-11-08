@@ -6,6 +6,9 @@ import logging
 import os
 
 
+LOG_FORMAT = "%(asctime)-15s %(message)s"
+
+
 class ProcessError(Exception):
     """Exception thrown when there is an error in a process."""
     pass
@@ -34,8 +37,18 @@ class Process(object):
     __metaclass__ = abc.ABCMeta
 
     def process(self, args):
-        """Performs the process on the input arguments."""
-        pass
+        """Sets up the process for execution."""
+
+        # Set up the logging to use a common format.
+        if args.log == None:
+            logging.basicConfig(
+                format = LOG_FORMAT,
+                level = logging.DEBUG)
+        else:
+            logging.basicConfig(
+                format = LOG_FORMAT,
+                level = logging.DEBUG,
+                filename = args.log)
 
     def setup_arguments(self, parser):
         """Creates the parser object for the process."""
@@ -51,6 +64,7 @@ class Process(object):
         """Returns the help string for the process."""
         pass
 
+
 class InputFilesProcess(Process):
     """Defines a process that takes one or more files.
 
@@ -60,6 +74,9 @@ class InputFilesProcess(Process):
 
     def process(self, args):
         """Verifies the input files exist."""
+
+        # Call the base implementations.
+        super(InputFilesProcess, self).process(args)
 
         # Make sure at least one file is provided.
         if args.files == 0:
