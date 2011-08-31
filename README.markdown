@@ -27,8 +27,7 @@ contains documentation, tests, and help files. When using Git with
 submodules (or the subtree module), the master-src branch is a better
 branch to include since it doesn't have extra files.
 
-To keep the two branches in sync, the subtree
-(https://github.com/apenwarr/git-subtree) module is used.
+To keep the two branches in sync, the [subtree](https://github.com/apenwarr/git-subtree) module is used.
 
 * `git subtree pull --prefix=src . master-src`
 * `git subtree push --prefix=src . master-src`
