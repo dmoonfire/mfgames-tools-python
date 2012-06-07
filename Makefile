@@ -11,6 +11,9 @@ clean:
 	rm -rf build
 	find -name "*.pyc" -o -name "*~" -print0 | xargs -0 rm -f
 
+doc:
+	make -C doc singlehtml
+
 check:
 	python setup.py check
 
