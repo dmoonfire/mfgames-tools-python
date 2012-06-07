@@ -7,11 +7,11 @@
 	 xmlns="http://usefulinc.com/ns/doap#">
   <doapext:short-name>mfgames-tools-python</doapext:short-name>
   <name>MfGames Tools Python</name>
-  <homepage rdf:resource="http://mfgames.com/mfgames-tools-cil"/>
+  <homepage rdf:resource="http://mfgames.com/mfgames-tools-python"/>
 
   <audience>Developers</audience>
   <license rdf:resource="http://www.opensource.org/licenses/mit-license.php">MIT</license>
-  <programming-language>C#</programming-language>
+  <programming-language>Python</programming-language>
 
   <!-- Repositories -->
   <repository>
