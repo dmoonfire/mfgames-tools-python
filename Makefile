@@ -11,8 +11,10 @@ clean:
 	rm -rf build
 	find -name "*.pyc" -o -name "*~" -print0 | xargs -0 rm -f
 
-doc:
-	make -C doc singlehtml
+docs:
+	cd doc && sphinx-apidoc -f -o source ../src
+	rm -f doc/source/modules.rst
+	make -C doc html
 
 check:
 	python setup.py check
