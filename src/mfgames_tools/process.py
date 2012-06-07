@@ -103,6 +103,35 @@ class InputFilesProcess(Process):
             help='Files to be processed by the action.')
 
 
+class InputFileProcess(Process):
+    """Defines a process that takes a single file and processes.
+    """
+
+    def process(self, args):
+        """Verifies the input files exist."""
+
+        # Call the base implementations.
+        super(InputFileProcess, self).process(args)
+
+        # Ensure that all the files exists.
+        if not os.path.exists(args.file):
+            raise ProcessError("Cannot find input file: " + args.file)
+
+    def setup_arguments(self, parser):
+        """Sets up the arguments to handle file inputs."""
+
+        # Call the base implementation for the common arguments.
+        super(InputFileProcess, self).setup_arguments(parser)
+        
+        # We use the 'str' instead of the FileType since the file will be
+        # opened with unicode support or another reason.
+        parser.add_argument(
+            'file',
+            metavar='file',
+            type=str,
+            help='File to be processed by the action.')
+
+
 class ConvertFilesProcess(InputFilesProcess):
     """Converts a set of files from one format to another."""
 
