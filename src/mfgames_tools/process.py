@@ -50,6 +50,9 @@ class Process(object):
                 level = logging.DEBUG,
                 filename = args.log)
 
+        # Save the arguments inside the class.
+        self.args = args
+
     def setup_arguments(self, parser):
         """Creates the parser object for the process."""
 
