@@ -90,6 +90,27 @@ class InputFilesProcess(Process):
             if not os.path.exists(filename):
                 raise ProcessError("Cannot find input file: " + filename)
 
+        # Give a chance for extending classes to hook into the pre
+        # processing.
+        self.pre_process_file()
+
+        # Process each individual file.
+        for filename in args.files:
+            self.process_file(filename)
+
+        # We are done, so give any extending classes a chance to do
+        # post processing.
+        self.post_process_file()
+
+    def pre_process_file(self):
+        pass
+
+    def process_file(self, filename):
+        pass
+
+    def post_process_file(self):
+        pass
+
     def setup_arguments(self, parser):
         """Sets up the arguments to handle file inputs."""
 
@@ -119,6 +140,26 @@ class InputFileProcess(Process):
         # Ensure that all the files exists.
         if not os.path.exists(args.file):
             raise ProcessError("Cannot find input file: " + args.file)
+
+        # Give a chance for extending classes to hook into the pre
+        # processing.
+        self.pre_process_file()
+
+        # Process the individual file.
+        self.process_file(args.file)
+
+        # We are done, so give any extending classes a chance to do
+        # post processing.
+        self.post_process_file()
+
+    def pre_process_file(self):
+        pass
+
+    def process_file(self, filename):
+        pass
+
+    def post_process_file(self):
+        pass
 
     def setup_arguments(self, parser):
         """Sets up the arguments to handle file inputs."""
