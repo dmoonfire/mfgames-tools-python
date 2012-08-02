@@ -63,6 +63,11 @@ def run_tool(
     # Use the default to figure out the process name which is then
     # used to call the process() method in that Process class.
     selected_name = args.name
+
+    if not selected_name in processes:
+        print "Unknown tool name: " + format(selected_name)
+        exit(1)
+
     selected_process = processes[selected_name]
     selected_process.process(args)
 
